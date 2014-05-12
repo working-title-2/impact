@@ -25,7 +25,7 @@ global.pageInit = ->
         height: 400
       },
       title : {
-        text : 'Population density by country (/km²)'
+        text : 'Population by country'
       },
 
       mapNavigation: {
@@ -35,26 +35,24 @@ global.pageInit = ->
         }
       },
 
-      #colorAxis: {
-      #  min: 1,
-      #  max: 1000,
-      #  type: 'logarithmic'
-      #},
+      colorAxis: {
+        min: 1
+      },
 
       series : [{
         type : 'map'
         data : data,
         mapData: Highcharts.maps.world,
         joinBy: 'code',
-        name: 'Population density',
+        name: 'Population',
         states: {
           hover: {
             color: '#BADA55'
           }
         },
-        tooltip: {
-          valueSuffix: '/km²'
-        }
+        # tooltip: {
+        #   valueSuffix: '/km²'
+        # }
       }]
     }
   )

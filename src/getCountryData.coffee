@@ -1,6 +1,6 @@
 convertToHighmapsObject = (result) ->
   {
-    code: result.getValue 'custrecord_country'
+    code: result.getValue 'custrecord_countrycode_2', 'custrecord_countrycode'
     name: result.getValue 'name'
     value: result.getValue 'custrecord_population'
   }
@@ -14,5 +14,6 @@ window.get = (request, response) ->
     new nlobjSearchColumn 'custrecord_country'
     new nlobjSearchColumn 'name'
     new nlobjSearchColumn 'custrecord_population'
+    new nlobjSearchColumn 'custrecord_countrycode_2', 'custrecord_countrycode'
   ]
   response.write JSON.stringify(convertToHighmapsObject(result) for result in nlapiSearchRecord('customrecord380', null, filters, columns))
