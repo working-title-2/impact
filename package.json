@@ -1,5 +1,5 @@
 {
-  "name": "VendScreen-NetSuite-Scripts",
+  "name": "working-title-2/impact",
   "devDependencies": {
     "coffee-script": "~1.6",
     "browserify": "~3.18",
@@ -17,7 +17,8 @@
     "node-lessify": "0.0.3",
     "pako": "~0.1.1",
     "uglify-js": "^2.4.13",
-    "exec-sync": "^0.1.6"
+    "exec-sync": "^0.1.6",
+    "node-csv": "~0.1.2"
   },
   "browser": {
     "highmaps": "./vendor/Highmaps-1.0.0-beta/js/highmaps.js"
@@ -30,7 +31,6 @@
   "engine": {
     "node": ">=0.10.10"
   },
-  "private": true,
-  "repository": "https://bitbucket.org/johnogle/hydro-flask-netsuite-scripts.git",
-  "readme": "NetSuite scripts for Hydro Flask"
+  "repository": "https://github.com/working-title-2/impact.git",
+  "readme": "Working Title 2's entry for the NetSuite Hackathon4Good 2014"
 }
