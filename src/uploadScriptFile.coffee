@@ -1,7 +1,7 @@
 global.doPost = (datain) ->
   message = ""
   
-  {folderIdForFilePath} = require('./library/fileCabinet.coffee')
+  {folderIdForFilePath} = require('../lib/fileCabinet.coffee')
   if (datain.hasOwnProperty('cabpath'))
     path = datain['cabpath']
     content = datain['content']
