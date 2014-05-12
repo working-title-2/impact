@@ -5,8 +5,8 @@ convertToHighmapsObject = (result) ->
     value: result.getValue 'custrecord_population'
   }
 
-window.get = (datain) ->
-  args = JSON.parse datain
+window.get = (request, response) ->
+  #args = JSON.parse datain
   filters = [
     new nlobjSearchFilter 'custrecord_reporteddate', null, 'within', '1/1/2010', '12/31/2010'
   ]
@@ -15,4 +15,4 @@ window.get = (datain) ->
     new nlobjSearchColumn 'name'
     new nlobjSearchColumn 'custrecord_population'
   ]
-  JSON.stringify(convertToHighmapsObject(result) for result in nlapiSearchRecord('customrecord_country', null, filters, columns))
+  response.write JSON.stringify(convertToHighmapsObject(result) for result in nlapiSearchRecord('customrecord380', null, filters, columns))
