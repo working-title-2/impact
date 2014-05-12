@@ -20,30 +20,11 @@
     "exec-sync": "^0.1.6"
   },
   "browser": {
-    "jquery": "./vendor/jquery/jquery-1.10.2.js",
-    "jquery-growl": "./vendor/jquery-growl/javascripts/jquery.growl.js",
-    "jquery-growl-css": "./vendor/jquery-growl/stylesheets/jquery.growl.css",
-    "es5-shim": "./vendor/es5-shim/es5-shim.js",
-    "es5-sham": "./vendor/es5-shim/es5-sham.js",
-    "jszip": "./vendor/jszip/lib/index.js"
+    "highmaps": "./vendor/Highmaps-1.0.0-beta/js/highmaps.js"
   },
   "browserify-shim": {
-    "jquery": {
-      "depends": [
-        "es5-shim",
-        "es5-sham"
-      ],
-      "exports": "jQuery"
-    },
-    "jquery-growl": {
-      "depends": [
-        "jquery:jQuery",
-        "jquery-growl-css"
-      ],
-      "exports": "jQuery.growl"
-    },
-    "memoizejs": {
-      "exports": "memoize"
+    "highmaps": {
+      "exports": "Highcharts"
     }
   },
   "engine": {
