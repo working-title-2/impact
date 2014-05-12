@@ -5,7 +5,7 @@ window.dafSuitelet = (request, response) ->
   form.setScript "customscript_daf_client"
   mapField = form.addField "custpage_map", "inlinehtml", "map goes here"
   mapHtml = "<div id='mapcanvas'></div>"
-  mapHtml += "<script src='https://code.highcharts.com/maps/highmaps.js'></script>"
+  #mapHtml += "<script src='https://code.highcharts.com/maps/highmaps.js'></script>"
   mapField.setDefaultValue mapHtml
   
   if request.getMethod == "GET"
@@ -16,7 +16,8 @@ window.dafSuitelet = (request, response) ->
   
 window.pageInit = ->
   # Get some sample data
-  jQuery.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=world-population-density.json&callback=?', (data) ->
+  jQuery.getJSON('//www.highcharts.com/samples/data/jsonp.php?filename=world-population-density.json&callback=?', (data) ->
+    Highcharts = require 'highmaps'
     # initialize the map
     map = new Highcharts.Chart {
       chart: {
