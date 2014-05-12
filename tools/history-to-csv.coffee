@@ -8,13 +8,13 @@ csv()
   header = true
   for country in data
     if header
-      output.write ["Date", "Country", "Population"]
+      output.write ["Date", "Country Code", "Population"]
       header = false
       continue
     for year in [2000..2012]
       output.write [
         "1/1/#{year}"
-        country[2]
+        country[1]
         country[year-1997]
       ]
 )
