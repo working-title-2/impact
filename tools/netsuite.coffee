@@ -104,7 +104,7 @@ global.nlapiRequestURL = (url, postdata, headers, httpMethod) ->
 				return response
 	
 	#Didn't return above, url doesn't match any regexes
-	console.log("Didn't match a URL regex")
+	#console.log("Didn't match a URL regex")
 	return doNlapiRequestURL(url, postdata, headers, httpMethod)
 
 class nlobjRequest

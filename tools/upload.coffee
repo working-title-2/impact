@@ -19,7 +19,7 @@ class Uploader
       url = @getRESTServiceURL()
       headers = {"Authorization":@getRESTServiceAuthString()}
       response = nlapiRequestURL(url, null, headers)
-      console.log(response.getBody())
+      #console.log(response.getBody())
       roles = JSON.parse(response.getBody())
       for role in roles
         if parseInt(@role, 10) == role['role']['internalId'] && @account == role['account']['internalId']
