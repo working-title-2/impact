@@ -38,7 +38,7 @@ global.pageInit = ->
       colorAxis: {
         min: 1
         max: data.max
-        minColor: '#eeeeee'
+        minColor: '#FFFEDB'
         maxColor: '#ff0000'
         gridLineWidth: 0
       }
@@ -64,5 +64,12 @@ global.pageInit = ->
       }
       
     }
+    
+    selectorsToHide = [
+      'g.highcharts-grid'
+      'svg > g.highcharts-axis-labels'
+      'g.highcharts-axis'
+    ]
+    jQuery(selector).attr('style', 'display: none;') for selector in selectorsToHide
   )
   
