@@ -1,6 +1,6 @@
 global.dafSuitelet = (request, response) ->
   # Set up the form (same for get/post)
-  form = nlapiCreateForm "Donor Advised Fund Visualizer", false
+  form = nlapiCreateForm "Impact Visualizer", false
   form.addSubmitButton "Reload"
   form.setScript "customscript_daf_client"
   mapField = form.addField "custpage_map", "inlinehtml", "map goes here"
@@ -15,45 +15,54 @@ global.dafSuitelet = (request, response) ->
 
 global.pageInit = ->
   # Get some sample data
-  jQuery.getJSON('/app/site/hosting/scriptlet.nl?script=667&deploy=1', (data) ->
+  jQuery.getJSON('/app/site/hosting/restlet.nl?script=668&deploy=1', (data) ->
     # initialize the map
     jQuery('#mapcanvas').highcharts {
       chart: {
-        renderTo: "mapcanvas",
-        type: 'Map',
-        width: 800,
-        height: 400
-      },
+        type: 'Map'
+        width: 800
+        height: 500
+      }
+      
       title : {
-        text : 'Population by country'
-      },
+        text : 'Poverty Level By Country (2004-2014)'
+      }
 
       mapNavigation: {
-        enabled: true,
+        enabled: true
         buttonOptions: {
           verticalAlign: 'bottom'
         }
-      },
+      }
 
       colorAxis: {
         min: 1
-      },
-
+        max: data.max
+        minColor: '#eeeeee'
+        maxColor: '#ff0000'
+        gridLineWidth: 0
+      }
+      
       series : [{
         type : 'map'
-        data : data,
-        mapData: Highcharts.maps.world,
-        joinBy: 'code',
-        name: 'Population',
+        data : data.data
+        mapData: Highcharts.maps.world
+        joinBy: 'code'
+        name: 'Poverty Level'
         states: {
           hover: {
             color: '#BADA55'
           }
-        },
-        # tooltip: {
-        #   valueSuffix: '/km²'
-        # }
+        }
+        tooltip: {
+          valueSuffix: '%'
+        }
       }]
+      
+      yAxis: {
+        label: ''
+      }
+      
     }
   )
   
