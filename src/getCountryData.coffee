@@ -7,7 +7,6 @@ convertToHighmapsObject = (result, valueColumn, max) ->
   {
     code: result.getValue 'custrecord_countrycode_2', 'custrecord_countrycode', 'group'
     name: result.getValue 'custrecord_countrycode_name', 'custrecord_countrycode', 'group'
-    #value: parseFloatOrZero(result.getValue(valueColumn)) / max * 100
     value: parseFloatOrZero(result.getValue(valueColumn))
   }
 
